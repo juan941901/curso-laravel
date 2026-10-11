@@ -1,0 +1,11 @@
+{
+    "name": "juancordoba/shopping_cart",
+    "description": "Intro POO Curso laravel 13",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./"
+        }
+    }
+}

@@ -1,9 +1,6 @@
 <?php
 
-# Librerias Necesarias
-require_once "./Helpers/Money.php";
-require_once "./Models/Product.php";
-require_once "./Services/Cart.php";
+require_once("./vendor/autoload.php");
 
 # Etiquetas para uso de las clases
 use App\Helpers\Money;
