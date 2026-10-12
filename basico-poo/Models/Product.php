@@ -7,34 +7,15 @@ class Product
 
     public function __construct(
         private string $name,
-        private float $price,
-        private int $stock
+        private float $price
     ) {
     }
 
     public function showProduct()
     {
 
-        echo $this->name;
+        echo $this->name . PHP_EOL;
 
-    }
-
-    public function decreaseStock(int $quantity)
-    {
-
-        if ($quantity > $this->stock) {
-
-            echo "no hay suficiente stock";
-            return;
-        }
-
-        $this->stock -= $quantity;
-
-    }
-
-    public function getStock()
-    {
-        return $this->stock;
     }
 
     public function getName(){
