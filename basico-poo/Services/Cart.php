@@ -8,6 +8,9 @@ use App\Models\Product;
 
 class Cart
 {
+    public function __construct(
+        private Taxes $taxes
+    ){}
 
     public array $items = [];
 
@@ -45,12 +48,9 @@ class Cart
         return $price;
     }
 
-    public function taxes(){
-        return $this->subTotal() * 0.19;
-    }
-
     public function total(){
-        return $this->subtotal() + $this->taxes();
+        $taxes = new Taxes();
+        return $this->subtotal() + $this->taxes->taxCalculator($this->subTotal());
     }
 
 }
