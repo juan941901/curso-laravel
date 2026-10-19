@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./configuracion-contenedor/Dockerfile
+    container_name: cashtracker
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./cashtracker:/var/www/html
+    ports:
+      - "8000:8000"
+      - "5173:5173"
+    network_mode: host
