@@ -29,6 +29,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Instalar Composer 2.10.3
 COPY --from=composer:2.10.3 /usr/bin/composer /usr/bin/composer
 
+# 1. Agregar los ejecutables globales de Composer al PATH del sistema
+ENV PATH="/root/.config/composer/vendor/bin:/root/.composer/vendor/bin:${PATH}"
+
+# 2. Instalar el instalador global de Laravel fijando la versión 5.x
+RUN composer global require "laravel/installer:^5.32.0" --prefer-dist --no-interaction
+
 # Instalar Node.js v24.21.0 y npm desde la imagen oficial
 COPY --from=node:24.21.0 /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=node:24.21.0 /usr/local/bin /usr/local/bin
